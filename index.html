@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>.</title>
+
+
+	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
+	
+</head>
+
+<body id="bd" class="bg-success " onload="readOnceWithGet()">
+
+    <div class ="btn btn-secondary " id="b" style="margin-left:100px;margin-top:30px">
+        
+    </div>
+	<div class="container-sm shadow-lg m-10" style="margin:10%;margin-top:25%">
+		
+	
+	<center><h1 class="btn btn-secondary bg-danger " style="margin-top:20px">login page</h1></center>
+	<span id="demo" style ="color:red;margin:0% 20% ;display:none" class =" btn   bg-white"></span>
+	
+	<center>
+	    <div class="container-sm shadow bg-white m-3">
+		
+
+
+			
+
+
+			<label for="inputJK"class="form-label">password</label><br>
+			<input type="password" class="pssr" style="width:150px;border-radius:30px" id="pssr" name="pssr"> 
+
+
+ <button type="submit" class ="btn btn-secondary " onclick="onlogin();">login</button><br>
+
+		
+		<br>
+		</div>
+			<button class="btn btn-primary " style="padding-buttom:10px"><a href="reg.html" style="color:white">register</a></button>
+
+	
+<button onclick="window.open('prog.html','_self');" class="btn btn-warning" style="float: right;">program</button>
+
+</div>
+ <div class="container-sm shadow-lg " style="width:40%;margin-left:20%;align-content: center;box-shadow: border-box;background-color: white;">
+ 	<marquee><span id="mytabl"></span></marquee>
+ </div></center>
+
+	<!-- Project -->
+	<script src="server.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    </script>
+    
+    <script>
+        
+        const firebaseConfig = {
+      apiKey: "AIzaSyCUyKCnYL8iRaR_rYEcf9lh_2prGWL8x_A",
+  authDomain: "realegalcho.firebaseapp.com",
+  projectId: "realegalcho",
+  storageBucket: "realegalcho.appspot.com",
+  messagingSenderId: "1073455577466",
+  appId: "1:1073455577466:web:7473332966c7026ecffec3",
+  measurementId: "G-2WP627XMXD"
+   };
+
+  
+   firebase.initializeApp(firebaseConfig);
+       
+          
+          function readOnceWithGet(data) {
+            
+        const table=document.querySelector('#mytabl');
+         firebase.database().ref('adv').once('value',   function(snapshot) {
+         snapshot.forEach(function(childSnapshot) {
+         	
+        
+         var childData = childSnapshot.val();
+        
+       
+       table.innerHTML=childData.lname+": posted by admin ";
+       
+        
+    });
+         
+  });
+         }
+     
+      
+     
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+ 
+</script>
+    </script>
+</body>
+</html>
